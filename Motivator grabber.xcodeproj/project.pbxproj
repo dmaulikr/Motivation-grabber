@@ -11,6 +11,9 @@
 		C26595091811986A0076778D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C26595081811986A0076778D /* main.m */; };
 		C265950D1811986A0076778D /* Motivator_grabber.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C265950C1811986A0076778D /* Motivator_grabber.1 */; };
 		C2659515181199720076778D /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = C2659514181199710076778D /* Parser.m */; };
+		C265951C1811AC300076778D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C265951B1811AC300076778D /* libxml2.dylib */; };
+		C265951D1811AE860076778D /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C26595181811ABEC0076778D /* HTMLNode.m */; };
+		C265951E1811AE890076778D /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C265951A1811ABEC0076778D /* HTMLParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +37,11 @@
 		C265950C1811986A0076778D /* Motivator_grabber.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Motivator_grabber.1; sourceTree = "<group>"; };
 		C2659513181199710076778D /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		C2659514181199710076778D /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		C26595171811ABEC0076778D /* HTMLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
+		C26595181811ABEC0076778D /* HTMLNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTMLNode.m; sourceTree = "<group>"; };
+		C26595191811ABEC0076778D /* HTMLParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
+		C265951A1811ABEC0076778D /* HTMLParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
+		C265951B1811AC300076778D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C265951C1811AC300076778D /* libxml2.dylib in Frameworks */,
 				C26595061811986A0076778D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +60,7 @@
 		C26594F91811986A0076778D = {
 			isa = PBXGroup;
 			children = (
+				C26595161811ABEC0076778D /* HMTL-Parser */,
 				C26595071811986A0076778D /* Motivator grabber */,
 				C26595041811986A0076778D /* Frameworks */,
 				C26595031811986A0076778D /* Products */,
@@ -68,6 +78,7 @@
 		C26595041811986A0076778D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C265951B1811AC300076778D /* libxml2.dylib */,
 				C26595051811986A0076778D /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -91,6 +102,17 @@
 				C265950B1811986A0076778D /* Motivator grabber-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C26595161811ABEC0076778D /* HMTL-Parser */ = {
+			isa = PBXGroup;
+			children = (
+				C26595171811ABEC0076778D /* HTMLNode.h */,
+				C26595181811ABEC0076778D /* HTMLNode.m */,
+				C26595191811ABEC0076778D /* HTMLParser.h */,
+				C265951A1811ABEC0076778D /* HTMLParser.m */,
+			);
+			path = "HMTL-Parser";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +168,8 @@
 			files = (
 				C2659515181199720076778D /* Parser.m in Sources */,
 				C26595091811986A0076778D /* main.m in Sources */,
+				C265951D1811AE860076778D /* HTMLNode.m in Sources */,
+				C265951E1811AE890076778D /* HTMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +249,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Motivator grabber/Motivator grabber-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -234,6 +263,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Motivator grabber/Motivator grabber-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -257,6 +291,7 @@
 				C26595121811986A0076778D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

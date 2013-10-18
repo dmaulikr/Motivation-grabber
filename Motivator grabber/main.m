@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#include "Parser.h"
 
 int main(int argc, const char * argv[])
 {
 
-    @autoreleasepool {
-        
-        // insert code here...
-        NSLog(@"Hello, World!");
-        
+    @autoreleasepool
+    {
+        Parser * parser = [[Parser alloc] init];
+//        [parser loadPageWithLocalFile:@"/Users/vladmazur/Downloads/motivate.html"];
+//        [parser findItemWithClass:@"post archive"];
+        [parser downloadPictures];
     }
     return 0;
 }
